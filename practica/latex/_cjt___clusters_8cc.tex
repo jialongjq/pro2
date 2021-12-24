@@ -1,0 +1,80 @@
+\hypertarget{_cjt___clusters_8cc}{}\section{Referencia del Archivo Cjt\+\_\+\+Clusters.\+cc}
+\label{_cjt___clusters_8cc}\index{Cjt\+\_\+\+Clusters.\+cc@{Cjt\+\_\+\+Clusters.\+cc}}
+
+
+Código de la clase \hyperlink{class_cjt___clusters}{Cjt\+\_\+\+Clusters}.  
+
+
+Dependencia gráfica adjunta para Cjt\+\_\+\+Clusters.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{_cjt___clusters_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_cjt___clusters_8cc_a5cec9117fc9081104f0adb60b07b64e5}{imprimir\+\_\+tabla} (const map$<$ string, map$<$ string, double $>$ $>$ \&m)
+\item 
+void \hyperlink{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}{imprimir\+\_\+preorden} (const Bin\+Tree$<$ pair$<$ string, double $>$ $>$ \&t)
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Código de la clase \hyperlink{class_cjt___clusters}{Cjt\+\_\+\+Clusters}. 
+
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{_cjt___clusters_8cc_a5cec9117fc9081104f0adb60b07b64e5}\label{_cjt___clusters_8cc_a5cec9117fc9081104f0adb60b07b64e5}} 
+\index{Cjt\+\_\+\+Clusters.\+cc@{Cjt\+\_\+\+Clusters.\+cc}!imprimir\+\_\+tabla@{imprimir\+\_\+tabla}}
+\index{imprimir\+\_\+tabla@{imprimir\+\_\+tabla}!Cjt\+\_\+\+Clusters.\+cc@{Cjt\+\_\+\+Clusters.\+cc}}
+\subsubsection{\texorpdfstring{imprimir\+\_\+tabla()}{imprimir\_tabla()}}
+{\footnotesize\ttfamily void imprimir\+\_\+tabla (\begin{DoxyParamCaption}\item[{const map$<$ string, map$<$ string, double $>$ $>$ \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 52 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+52                                                                 \{
+53   map<string, map<string, double> >::const\_iterator it1 = m.begin();
+54   \textcolor{keywordflow}{while} (it1 != m.end()) \{
+55     cout << it1->first << \textcolor{stringliteral}{":"};
+56     map<string, double>::const\_iterator it2 = it1->second.begin();
+57     \textcolor{keywordflow}{while} (it2 != it1->second.end()) \{
+58       cout << \textcolor{stringliteral}{" "} << it2->first << \textcolor{stringliteral}{" ("} << it2->second << \textcolor{stringliteral}{")"};
+59       ++it2;
+60     \}
+61     cout << endl;
+62     ++it1;
+63   \}
+64 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}\label{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}} 
+\index{Cjt\+\_\+\+Clusters.\+cc@{Cjt\+\_\+\+Clusters.\+cc}!imprimir\+\_\+preorden@{imprimir\+\_\+preorden}}
+\index{imprimir\+\_\+preorden@{imprimir\+\_\+preorden}!Cjt\+\_\+\+Clusters.\+cc@{Cjt\+\_\+\+Clusters.\+cc}}
+\subsubsection{\texorpdfstring{imprimir\+\_\+preorden()}{imprimir\_preorden()}}
+{\footnotesize\ttfamily void imprimir\+\_\+preorden (\begin{DoxyParamCaption}\item[{const Bin\+Tree$<$ pair$<$ string, double $>$ $>$ \&}]{t }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 150 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+150                                                                 \{
+151 
+152   \textcolor{keywordflow}{if} (not t.empty()) \{
+153     cout << \textcolor{stringliteral}{"["};
+154     \textcolor{keywordtype}{double} d = t.value().second;
+155     \textcolor{keywordflow}{if} (d == -1) cout << t.value().first;
+156     \textcolor{keywordflow}{else} cout << \textcolor{stringliteral}{"("} << t.value().first << \textcolor{stringliteral}{", "} << d << \textcolor{stringliteral}{") "};
+157     \hyperlink{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}{imprimir\_preorden}(t.left());
+158     \hyperlink{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}{imprimir\_preorden}(t.right());
+159     cout << \textcolor{stringliteral}{"]"};
+160   \}
+161 \}
+\end{DoxyCode}

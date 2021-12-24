@@ -1,0 +1,145 @@
+\hypertarget{pruebas_8cc}{}\section{Referencia del Archivo pruebas.\+cc}
+\label{pruebas_8cc}\index{pruebas.\+cc@{pruebas.\+cc}}
+Dependencia gráfica adjunta para pruebas.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{pruebas_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{pruebas_8cc_a2a5316920e0ac6a478990078b44248f0}{calcular\+\_\+distancia} (const map$<$ string, int $>$ \&kmer1, const map$<$ string, int $>$ \&kmer2)
+\item 
+int \hyperlink{pruebas_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{pruebas_8cc_a2a5316920e0ac6a478990078b44248f0}\label{pruebas_8cc_a2a5316920e0ac6a478990078b44248f0}} 
+\index{pruebas.\+cc@{pruebas.\+cc}!calcular\+\_\+distancia@{calcular\+\_\+distancia}}
+\index{calcular\+\_\+distancia@{calcular\+\_\+distancia}!pruebas.\+cc@{pruebas.\+cc}}
+\subsubsection{\texorpdfstring{calcular\+\_\+distancia()}{calcular\_distancia()}}
+{\footnotesize\ttfamily double calcular\+\_\+distancia (\begin{DoxyParamCaption}\item[{const map$<$ string, int $>$ \&}]{kmer1,  }\item[{const map$<$ string, int $>$ \&}]{kmer2 }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 7 del archivo pruebas.\+cc.
+
+
+\begin{DoxyCode}
+7                                                                                        \{
+8   map<string, int>::const\_iterator it1 = kmer1.begin();
+9   map<string, int>::const\_iterator it2 = kmer2.begin();
+10   \textcolor{keywordtype}{double} n\_interseccion = 0;
+11   \textcolor{keywordtype}{double} n\_union = 0;
+12   \textcolor{keywordflow}{while} (it1 != kmer1.end() and it2 != kmer2.end()) \{
+13     \textcolor{keywordflow}{if} (it1->first > it2->first) \{
+14       n\_union += it2->second;
+15       ++it2;
+16     \}
+17     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (it1->first < it2->first) \{
+18       n\_union += it1->second;
+19       ++it1;
+20     \}
+21     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (it1->first == it2->first)\{
+22       n\_union += max(it1->second, it2->second);
+23       n\_interseccion += min(it1->second, it2->second);
+24       ++it1;
+25       ++it2;
+26     \}
+27   \}
+28   \textcolor{keywordflow}{while} (it1 != kmer1.end()) \{
+29     n\_union += it1->second;
+30     ++it1;
+31   \}
+32   \textcolor{keywordflow}{while} (it2 != kmer2.end()) \{
+33     n\_union += it2->second;
+34     ++it2;
+35   \}
+36   cout << n\_interseccion << \textcolor{stringliteral}{" "} << n\_union << endl;
+37   \textcolor{keywordtype}{double} distancia = ((1 - (n\_interseccion/n\_union)) * 100);
+38   \textcolor{keywordflow}{return} distancia;
+39 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{pruebas_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{pruebas_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{pruebas.\+cc@{pruebas.\+cc}!main@{main}}
+\index{main@{main}!pruebas.\+cc@{pruebas.\+cc}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 41 del archivo pruebas.\+cc.
+
+
+\begin{DoxyCode}
+41            \{
+42   BinTree<string> t(\textcolor{stringliteral}{"lol"});
+43   \textcolor{keywordtype}{string} s1 = \textcolor{stringliteral}{"ol"};
+44   \textcolor{keywordtype}{string} s2 = \textcolor{stringliteral}{"eeee"};
+45   t = BinTree<string>(s1 + s2, t, t);
+46   \textcolor{comment}{/*}
+47 \textcolor{comment}{  map<string, double> mapa;}
+48 \textcolor{comment}{  mapa["a"] = 0;}
+49 \textcolor{comment}{  mapa["b"] = 1;}
+50 \textcolor{comment}{  mapa["c"] = 2;}
+51 \textcolor{comment}{  mapa["d"] = 3;}
+52 \textcolor{comment}{  mapa.insert(mapa.erase(mapa.find("b")), make\_pair("boooo", 10201));}
+53 \textcolor{comment}{}
+54 \textcolor{comment}{  map<string, double>::iterator it1 = mapa.begin();}
+55 \textcolor{comment}{  while (it1 != mapa.end()) \{}
+56 \textcolor{comment}{    cout << it1-> first << " " << it1->second << endl;}
+57 \textcolor{comment}{    ++it1;}
+58 \textcolor{comment}{  \}}
+59 \textcolor{comment}{  */}
+60   \textcolor{comment}{/*}
+61 \textcolor{comment}{  map<string, double> mapa;}
+62 \textcolor{comment}{  mapa["hola"] = 1;}
+63 \textcolor{comment}{  cout << mapa.size() << endl;}
+64 \textcolor{comment}{  */}
+65   \textcolor{comment}{/*}
+66 \textcolor{comment}{  list<string> lista;}
+67 \textcolor{comment}{  list<string>::iterator it = lista.insert(lista.end(), "lol");}
+68 \textcolor{comment}{  cout << *it << endl;}
+69 \textcolor{comment}{  */}
+70   \textcolor{comment}{/*}
+71 \textcolor{comment}{  Especie esp1, esp2;}
+72 \textcolor{comment}{  int k;}
+73 \textcolor{comment}{  cin >> k;}
+74 \textcolor{comment}{  esp1.leer\_especie(k);}
+75 \textcolor{comment}{  esp2.leer\_especie(k);}
+76 \textcolor{comment}{}
+77 \textcolor{comment}{  double distancia = calcular\_distancia(esp1.consultar\_kmer(), esp2.consultar\_kmer());}
+78 \textcolor{comment}{  cout << distancia << endl;*/}
+79   \textcolor{comment}{/*}
+80 \textcolor{comment}{  map<string, int> mapa;}
+81 \textcolor{comment}{  mapa["aaa"] = 1;}
+82 \textcolor{comment}{  mapa["ccc"] = 3;}
+83 \textcolor{comment}{  map<string, int>::const\_iterator it = mapa.begin();}
+84 \textcolor{comment}{  ++it;}
+85 \textcolor{comment}{  it = mapa.insert(it, make\_pair("bbb", 2));}
+86 \textcolor{comment}{}
+87 \textcolor{comment}{  cout << it->first<< " " << it->second << endl;}
+88 \textcolor{comment}{  */}
+89   \textcolor{comment}{/*}
+90 \textcolor{comment}{  map<string, double> mapa;}
+91 \textcolor{comment}{  mapa["aaa"] = 0;}
+92 \textcolor{comment}{  mapa["ccc"] = 0;}
+93 \textcolor{comment}{  map<string, double>::iterator it = mapa.begin(), it\_add = mapa.end();}
+94 \textcolor{comment}{  while (it != mapa.end()) \{}
+95 \textcolor{comment}{    if (it->first > "bbb") \{}
+96 \textcolor{comment}{      if (it\_add == mapa.end()) it\_add = it;}
+97 \textcolor{comment}{    \}}
+98 \textcolor{comment}{    ++it;}
+99 \textcolor{comment}{  \}}
+100 \textcolor{comment}{  mapa.insert(it\_add, make\_pair("bbb", 0));}
+101 \textcolor{comment}{  it = mapa.begin();}
+102 \textcolor{comment}{  while (it != mapa.end()) \{}
+103 \textcolor{comment}{    cout << it->first << endl;}
+104 \textcolor{comment}{    ++it;}
+105 \textcolor{comment}{  \}}
+106 \textcolor{comment}{  */}
+107 \}
+\end{DoxyCode}

@@ -1,0 +1,472 @@
+\hypertarget{class_cjt___clusters}{}\section{Referencia de la Clase Cjt\+\_\+\+Clusters}
+\label{class_cjt___clusters}\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+
+
+Representa la información y las operaciones de un conjunto de clústers.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_cjt___clusters_a2e55759944a78043744103e19dd87c1c}{Cjt\+\_\+\+Clusters} ()
+\begin{DoxyCompactList}\small\item\em Constructora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_cjt___clusters_a11e683ee54988d48d34c9cb2f6d52be6}{Cjt\+\_\+\+Clusters} (const \hyperlink{class_cjt___especies}{Cjt\+\_\+\+Especies} \&e)
+\begin{DoxyCompactList}\small\item\em Constructora a partir de un conjunto de especies. \end{DoxyCompactList}\item 
+void \hyperlink{class_cjt___clusters_a4675196f92740eda90fcbdf7942ee04b}{ejecutar\+\_\+paso\+\_\+wpgma} (bool \&b)
+\begin{DoxyCompactList}\small\item\em Ejecuta un paso del algoritmo W\+P\+G\+MA. \end{DoxyCompactList}\item 
+void \hyperlink{class_cjt___clusters_add140d48281573802396c267f0d15cee}{imprimir\+\_\+cluster} (string id, bool \&b) const
+\begin{DoxyCompactList}\small\item\em Escritura de un clúster del conjunto, dado un identificador. \end{DoxyCompactList}\item 
+void \hyperlink{class_cjt___clusters_a289dfd3307b383620edc1f901dced7b0}{imprimir\+\_\+arbol\+\_\+filogenetico} (bool \&b)
+\begin{DoxyCompactList}\small\item\em Escritura del árbol filogenético del conjunto de especies con el que se ha inicializado el conjunto de clústers. \end{DoxyCompactList}\item 
+void \hyperlink{class_cjt___clusters_a8caa8d4eae15730feccea2ce7d22a196}{imprimir\+\_\+distancias\+\_\+c} () const
+\begin{DoxyCompactList}\small\item\em Escritura de la tabla de distancias entre clústers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Métodos privados}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_cjt___clusters_ac0e4dd151f0bbd2954d44551330a8757}{distancia\+\_\+minima} ()
+\begin{DoxyCompactList}\small\item\em Calcula la distancia mínima entre los clústers del conjunto. \end{DoxyCompactList}\item 
+void \hyperlink{class_cjt___clusters_a04cfe3b7b8998398a48459f9a9339c22}{algoritmo\+\_\+wpgma} ()
+\begin{DoxyCompactList}\small\item\em Ejecuta un paso del algoritmo W\+P\+G\+MA. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Atributos privados}
+\begin{DoxyCompactItemize}
+\item 
+map$<$ string, map$<$ string, double $>$ $>$ \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\+\_\+c}
+\begin{DoxyCompactList}\small\item\em Mapa de submapas donde se guardan las distancias entre dos especies, cuyos identificadores son las keys. \end{DoxyCompactList}\item 
+map$<$ string, Bin\+Tree$<$ pair$<$ string, double $>$ $>$ $>$ \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}
+\begin{DoxyCompactList}\small\item\em Mapa de árboles binarios donde se guardan los clústers, donde la key de cada árbol es el identificador de su nodo. \end{DoxyCompactList}\item 
+string \hyperlink{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}{save\+\_\+c1}
+\begin{DoxyCompactList}\small\item\em Parámetro auxiliar que indica el identificador de uno de los dos clústers de distancia mínima, dicho identificador es el menor. \end{DoxyCompactList}\item 
+string \hyperlink{class_cjt___clusters_a1406c60345958da0016fa3c0b1cd89f5}{save\+\_\+c2}
+\begin{DoxyCompactList}\small\item\em Parámetro auxiliar que indica el identificador de uno de los dos clústers de distancia mínima, dicho identificador es el mayor. \end{DoxyCompactList}\item 
+double \hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\+\_\+min}
+\begin{DoxyCompactList}\small\item\em Parámetro auxiliar que indica la distancia mínima entre el clúster save\+\_\+c1 y save\+\_\+c2. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa la información y las operaciones de un conjunto de clústers. 
+
+Sus operaciones son la modificadora de ejecución de un paso del algoritmo W\+P\+G\+MA, y las de escritura de un clúster dado un identificador, del árbol filogenético del conjunto de clústers y de la tabla de distancias entre los clústers del conjunto
+
+Hay declaradas varias operaciones auxiliares como {\itshape private} 
+
+Definición en la línea 21 del archivo Cjt\+\_\+\+Clusters.\+hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_cjt___clusters_a2e55759944a78043744103e19dd87c1c}\label{class_cjt___clusters_a2e55759944a78043744103e19dd87c1c}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{Cjt\+\_\+\+Clusters()}{Cjt\_Clusters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Cjt\+\_\+\+Clusters\+::\+Cjt\+\_\+\+Clusters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructora por defecto. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha creado un conjunto de clusters vacío 
+\end{DoxyPostcond}
+
+
+Definición en la línea 6 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+6 \{\}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cjt___clusters_a11e683ee54988d48d34c9cb2f6d52be6}\label{class_cjt___clusters_a11e683ee54988d48d34c9cb2f6d52be6}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{Cjt\+\_\+\+Clusters()}{Cjt\_Clusters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Cjt\+\_\+\+Clusters\+::\+Cjt\+\_\+\+Clusters (\begin{DoxyParamCaption}\item[{const \hyperlink{class_cjt___especies}{Cjt\+\_\+\+Especies} \&}]{e }\end{DoxyParamCaption})}
+
+
+
+Constructora a partir de un conjunto de especies. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha creado un conjunto de clusters a partir de un conjunto de especies e. Se le asigna al parámetro implícito los clústers y sus distancias obtenidas a partir de e. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 8 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+8                                                 \{
+9   \hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\_min} = -1;
+10   \textcolor{keywordtype}{int} size = e.\hyperlink{class_cjt___especies_a7061cb2108f9be2b12b8f2c5ae99a82d}{size}();
+11   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < size; ++i) \{
+12     \textcolor{keywordtype}{string} \textcolor{keywordtype}{id} = e.\hyperlink{class_cjt___especies_a0cc233873c53e5120cd362de7821eb16}{consultar\_id\_iesimo}(i);
+13     BinTree<pair<string, double> > leaf(make\_pair(\textcolor{keywordtype}{id}, -1));
+14     \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.insert(\hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.end(), make\_pair(\textcolor{keywordtype}{id}, leaf));
+15   \}
+16   map<string, double> aux;
+17   map<string, BinTree<pair<string, double> > >::iterator it1 = \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.begin();
+18   \textcolor{keywordflow}{while} (it1 != \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.end()) \{
+19     map<string, double> aux;
+20     map<string, BinTree<pair<string, double> > >::iterator it2 = it1;
+21     ++it2;
+22     \textcolor{keywordflow}{while} (it2 != \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.end()) \{
+23       \textcolor{keywordtype}{string} id1 = it1->first;
+24       \textcolor{keywordtype}{string} id2 = it2->first;
+25       \textcolor{keywordtype}{double} d = e.\hyperlink{class_cjt___especies_a55f41bd03feccf515a491abca95bd60f}{consultar\_distancia}(id1, id2);
+26       aux.insert(aux.end(), make\_pair(id2, d));
+27       ++it2;
+28     \}
+29     \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.insert(\hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.end(), make\_pair(it1->first, aux));
+30     ++it1;
+31   \}
+32   \hyperlink{class_cjt___clusters_ac0e4dd151f0bbd2954d44551330a8757}{distancia\_minima}();
+33 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_cjt___clusters_a4675196f92740eda90fcbdf7942ee04b}\label{class_cjt___clusters_a4675196f92740eda90fcbdf7942ee04b}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!ejecutar\+\_\+paso\+\_\+wpgma@{ejecutar\+\_\+paso\+\_\+wpgma}}
+\index{ejecutar\+\_\+paso\+\_\+wpgma@{ejecutar\+\_\+paso\+\_\+wpgma}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{ejecutar\+\_\+paso\+\_\+wpgma()}{ejecutar\_paso\_wpgma()}}
+{\footnotesize\ttfamily void Cjt\+\_\+\+Clusters\+::ejecutar\+\_\+paso\+\_\+wpgma (\begin{DoxyParamCaption}\item[{bool \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Ejecuta un paso del algoritmo W\+P\+G\+MA. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+b indica si el número de clústers del parámetro implícito es mayor que 1; si b = true, se ha ejecutado un paso del algoritmo W\+P\+G\+MA; b = false contrariamente 
+\end{DoxyPostcond}
+
+
+Definición en la línea 141 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+141                                               \{
+142   \textcolor{keywordflow}{if} (\hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.size() > 1) \{
+143     b = \textcolor{keyword}{true};
+144     \hyperlink{class_cjt___clusters_a04cfe3b7b8998398a48459f9a9339c22}{algoritmo\_wpgma}();
+145     \hyperlink{_cjt___clusters_8cc_a5cec9117fc9081104f0adb60b07b64e5}{imprimir\_tabla}(\hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c});
+146   \}
+147   \textcolor{keywordflow}{else} b = \textcolor{keyword}{false};
+148 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cjt___clusters_add140d48281573802396c267f0d15cee}\label{class_cjt___clusters_add140d48281573802396c267f0d15cee}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!imprimir\+\_\+cluster@{imprimir\+\_\+cluster}}
+\index{imprimir\+\_\+cluster@{imprimir\+\_\+cluster}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{imprimir\+\_\+cluster()}{imprimir\_cluster()}}
+{\footnotesize\ttfamily void Cjt\+\_\+\+Clusters\+::imprimir\+\_\+cluster (\begin{DoxyParamCaption}\item[{string}]{id,  }\item[{bool \&}]{b }\end{DoxyParamCaption}) const}
+
+
+
+Escritura de un clúster del conjunto, dado un identificador. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito está inicializado 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+b indica si el parámetro implícito contiene un clúster con el identificador id dado; si b = true, se escribe dicho clúster por el canal estándar de salida; b = false contrariamente 
+\end{DoxyPostcond}
+
+
+Definición en la línea 163 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+163                                                             \{
+164   map<string, BinTree<pair<string,double> > >::const\_iterator it = \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.find(\textcolor{keywordtype}{id});
+165   \textcolor{keywordflow}{if} (it == \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.end()) b = \textcolor{keyword}{false};
+166   \textcolor{keywordflow}{else} \{
+167     b = \textcolor{keyword}{true};
+168     \hyperlink{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}{imprimir\_preorden}(it->second);
+169     cout << endl;
+170   \}
+171 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cjt___clusters_a289dfd3307b383620edc1f901dced7b0}\label{class_cjt___clusters_a289dfd3307b383620edc1f901dced7b0}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!imprimir\+\_\+arbol\+\_\+filogenetico@{imprimir\+\_\+arbol\+\_\+filogenetico}}
+\index{imprimir\+\_\+arbol\+\_\+filogenetico@{imprimir\+\_\+arbol\+\_\+filogenetico}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{imprimir\+\_\+arbol\+\_\+filogenetico()}{imprimir\_arbol\_filogenetico()}}
+{\footnotesize\ttfamily void Cjt\+\_\+\+Clusters\+::imprimir\+\_\+arbol\+\_\+filogenetico (\begin{DoxyParamCaption}\item[{bool \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Escritura del árbol filogenético del conjunto de especies con el que se ha inicializado el conjunto de clústers. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+b indica si el conjunto de clústers está vacío. Si b = false, se escribe el árbol filogenético (en preorden) del conjunto actual de clusters. El parámetro implícito pasa a tener el conjunto final de clústers, resultado de aplicar el algoritmo W\+P\+G\+MA de manera completa 
+\end{DoxyPostcond}
+
+
+Definición en la línea 173 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+173                                                       \{
+174 
+175   \textcolor{keywordflow}{if} (\hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.size() == 0) b = \textcolor{keyword}{true};
+176   \textcolor{keywordflow}{else} \{
+177     b = \textcolor{keyword}{false};
+178     \textcolor{keywordflow}{while} (\hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.size() > 1) \{
+179       \hyperlink{class_cjt___clusters_a04cfe3b7b8998398a48459f9a9339c22}{algoritmo\_wpgma}();
+180     \}
+181     \hyperlink{_cjt___clusters_8cc_a4afe93558c94b1dce66fff0cf68cb08a}{imprimir\_preorden}(\hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.begin()->second);
+182     cout << endl;
+183   \}
+184 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cjt___clusters_a8caa8d4eae15730feccea2ce7d22a196}\label{class_cjt___clusters_a8caa8d4eae15730feccea2ce7d22a196}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!imprimir\+\_\+distancias\+\_\+c@{imprimir\+\_\+distancias\+\_\+c}}
+\index{imprimir\+\_\+distancias\+\_\+c@{imprimir\+\_\+distancias\+\_\+c}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{imprimir\+\_\+distancias\+\_\+c()}{imprimir\_distancias\_c()}}
+{\footnotesize\ttfamily void Cjt\+\_\+\+Clusters\+::imprimir\+\_\+distancias\+\_\+c (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Escritura de la tabla de distancias entre clústers. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se ha escrito en el canal estándar de salida la tabla de distancias del parámetro implícito 
+\end{DoxyPostcond}
+
+
+Definición en la línea 186 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+186                                                \{
+187   \hyperlink{_cjt___clusters_8cc_a5cec9117fc9081104f0adb60b07b64e5}{imprimir\_tabla}(\hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c});
+188 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cjt___clusters_ac0e4dd151f0bbd2954d44551330a8757}\label{class_cjt___clusters_ac0e4dd151f0bbd2954d44551330a8757}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!distancia\+\_\+minima@{distancia\+\_\+minima}}
+\index{distancia\+\_\+minima@{distancia\+\_\+minima}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{distancia\+\_\+minima()}{distancia\_minima()}}
+{\footnotesize\ttfamily void Cjt\+\_\+\+Clusters\+::distancia\+\_\+minima (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Calcula la distancia mínima entre los clústers del conjunto. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se atribuyen a \textquotesingle{}save\+\_\+c1\textquotesingle{} y \textquotesingle{}save\+\_\+c2\textquotesingle{} (tal que save\+\_\+c1 $<$ save\+\_\+c2) los identificadores de los clusters cuya distancia es la mínima. \textquotesingle{}d\+\_\+min\textquotesingle{} es dicha distancia. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 35 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+35                                     \{
+36   map<string, map<string, double> >::const\_iterator it1 = \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.begin();
+37   \textcolor{keywordflow}{while} (it1 != \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.end()) \{
+38     map<string, double>::const\_iterator it2 = it1->second.begin();
+39     \textcolor{keywordflow}{while} (it2 != it1->second.end()) \{
+40       \textcolor{keywordtype}{double} d = it2->second;
+41       \textcolor{keywordflow}{if} (\hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\_min} == -1 or d < \hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\_min}) \{
+42         \hyperlink{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}{save\_c1} = it1->first;
+43         \hyperlink{class_cjt___clusters_a1406c60345958da0016fa3c0b1cd89f5}{save\_c2} = it2->first;
+44         \hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\_min} = d;
+45       \}
+46       ++it2;
+47     \}
+48     ++it1;
+49   \}
+50 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_cjt___clusters_a04cfe3b7b8998398a48459f9a9339c22}\label{class_cjt___clusters_a04cfe3b7b8998398a48459f9a9339c22}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!algoritmo\+\_\+wpgma@{algoritmo\+\_\+wpgma}}
+\index{algoritmo\+\_\+wpgma@{algoritmo\+\_\+wpgma}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{algoritmo\+\_\+wpgma()}{algoritmo\_wpgma()}}
+{\footnotesize\ttfamily void Cjt\+\_\+\+Clusters\+::algoritmo\+\_\+wpgma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Ejecuta un paso del algoritmo W\+P\+G\+MA. 
+
+\begin{DoxyPrecond}{Precondición}
+Cierto 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Los clústers con identificador \textquotesingle{}save\+\_\+c1\textquotesingle{} y \textquotesingle{}save\+\_\+c2\textquotesingle{} se combinan y como consecuencia se actualiza toda la tabla de distancias \textquotesingle{}distancias\+\_\+c\textquotesingle{}, recalculando nuevas distancias entre el nuevo clúster y los demás. También se actualiza el mapa de árboles binarios \textquotesingle{}clusters\textquotesingle{}, donde los árboles binarios con nodos \textquotesingle{}save\+\_\+c1\textquotesingle{} y \textquotesingle{}save\+\_\+c2\textquotesingle{} pasan a formar parte del subárbol izquierdo y derecho, respectivamente. Se recalculan también \textquotesingle{}save\+\_\+c1\textquotesingle{}, \textquotesingle{}save\+\_\+c2\textquotesingle{} y \textquotesingle{}d\+\_\+min\textquotesingle{}, con tal de poder volver a ejecutar el algoritmo sin problemas. 
+\end{DoxyPostcond}
+
+
+Definición en la línea 66 del archivo Cjt\+\_\+\+Clusters.\+cc.
+
+
+\begin{DoxyCode}
+66                                    \{
+67   \textcolor{keywordtype}{string} s = \hyperlink{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}{save\_c1} + \hyperlink{class_cjt___clusters_a1406c60345958da0016fa3c0b1cd89f5}{save\_c2};
+68   \textcolor{comment}{//bintrees}
+69   map<string, BinTree<pair<string, double> > >::iterator it\_c1 = \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.find(
+      \hyperlink{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}{save\_c1});
+70 
+71   map<string, BinTree<pair<string, double> > >::iterator it\_c2 = \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.find(save\_c2);
+72   BinTree<pair<string, double> > tree(make\_pair(s, \hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\_min}/2), it\_c1->second, it\_c2->second);
+73   \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.erase(it\_c2);
+74   \hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.insert(\hyperlink{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}{clusters}.erase(it\_c1), make\_pair(s, tree));
+75 
+76   \textcolor{comment}{//distancias}
+77   map<string, map<string, double> >::iterator it1 = \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.begin();
+78   \textcolor{comment}{//Bucle para actualizar la tabla de los clusters previos a save\_c1}
+79 
+80   \textcolor{keywordflow}{while} (it1->first < \hyperlink{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}{save\_c1}) \{
+81     map<string, double>::iterator it\_c1 = it1->second.find(\hyperlink{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}{save\_c1});
+82     map<string, double>::iterator it\_c2 = it1->second.find(save\_c2);
+83     \textcolor{keywordtype}{double} d = (it\_c1->second + it\_c2->second) / 2;
+84     it1->second.erase(it\_c2);
+85     \textcolor{comment}{//"La inserción es más rápida si se le da una pista; dicha pista es el iterador}
+86     \textcolor{comment}{//que apunta al elemento que le procede al elemento insertado"}
+87     it1->second.insert(it1->second.erase(it\_c1), make\_pair(s, d));
+88     ++it1;
+89   \}
+90 
+91   \textcolor{comment}{//En este momento it1 apunta al clúster save\_c1 y su mapa de distancias, por lo que}
+92   \textcolor{comment}{//me interesa guardarlo para determinar las distancias actualizadas}
+93   map<string, map<string, double> >::iterator save\_it1 = it1;
+94   map<string, double> aux;
+95   \textcolor{comment}{//it2 apuntará a los clústers cuya distancia tengo que actualizar}
+96   map<string, double>::iterator it2 = save\_it1->second.begin();
+97   map<string, double>::iterator itc2;
+98   \textcolor{keywordflow}{while} (it2 != save\_it1->second.end()) \{
+99     \textcolor{comment}{//A la hora de recalcular distancias, se sigue un cierto patrón:}
+100     \textcolor{comment}{//Si el id del cluster que quiero recalcular (llamémosle c3) es menor que save\_c2,}
+101     \textcolor{comment}{//las distancias que me interesan son la distancia de c3 respecto save\_c1 primeramente}
+102     \textcolor{comment}{//(se encuentra en el map de save\_c1), y la distancia de c3 respecto save\_c2}
+103     \textcolor{comment}{//(se encuentra en el map de c3 porque c3 < save\_c2);}
+104     \textcolor{keywordflow}{if} (it2->first < save\_c2) \{
+105       ++it1;
+106       \textcolor{keywordtype}{double} d1 = it2->second;
+107       map<string, double>::iterator itt = it1->second.find(save\_c2);
+108       \textcolor{keywordtype}{double} d2 = itt->second;
+109       it1->second.erase(itt);
+110       \textcolor{keywordtype}{double} d = (d1 + d2) / 2;
+111       aux.insert(aux.end(), make\_pair(it2->first, d));
+112     \}
+113     \textcolor{comment}{//Para el caso en el que me encuentre a save\_c2 en el map de save\_c1, no debo añadir}
+114     \textcolor{comment}{//ningún valor al mapa auxiliar aux, porque save\_c2 se combina con save\_c1}
+115     \textcolor{comment}{//lo que sí que me interesa es que it1 apunte a save\_c2 y su mapa de distancias, ya que}
+116     \textcolor{comment}{//serán necesarias para recalcular las distancias de c3 > save\_c2 (para ello necesito}
+117     \textcolor{comment}{//consultar el mapa de distancias de save\_c2, ya que se encuentran ahí todas las distancias}
+118     \textcolor{comment}{//respecto los c3 restantes}
+119 
+120     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (it2->first == save\_c2) \{
+121       ++it1;
+122       itc2 = it1->second.begin();
+123     \}
+124 
+125     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (it2->first > save\_c2) \{
+126       \textcolor{keywordtype}{double} d1 = it2->second;
+127       \textcolor{keywordtype}{double} d2 = itc2->second;
+128       \textcolor{keywordtype}{double} d = (d1 + d2) / 2;
+129       aux.insert(aux.end(), make\_pair(it2->first, d));
+130       ++itc2;
+131     \}
+132     ++it2;
+133   \}
+134   \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.insert(\hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.erase(save\_it1), make\_pair(s, aux));
+135   \hyperlink{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}{distancias\_c}.erase(it1);
+136 
+137   \hyperlink{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}{d\_min} = -1;
+138   \hyperlink{class_cjt___clusters_ac0e4dd151f0bbd2954d44551330a8757}{distancia\_minima}();
+139 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de los datos miembro}
+\mbox{\Hypertarget{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}\label{class_cjt___clusters_a2b912c7987fd370bdeaf5dabb966240f}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!distancias\+\_\+c@{distancias\+\_\+c}}
+\index{distancias\+\_\+c@{distancias\+\_\+c}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{distancias\+\_\+c}{distancias\_c}}
+{\footnotesize\ttfamily map$<$string, map$<$string, double$>$ $>$ Cjt\+\_\+\+Clusters\+::distancias\+\_\+c\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mapa de submapas donde se guardan las distancias entre dos especies, cuyos identificadores son las keys. 
+
+Ordenado crecientemente por los identificadores de las especies, sin repetición de distancias entre dos mismas especies 
+
+Definición en la línea 31 del archivo Cjt\+\_\+\+Clusters.\+hh.
+
+\mbox{\Hypertarget{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}\label{class_cjt___clusters_a866c5a14f8f50598be2af9fd8c115dd2}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!clusters@{clusters}}
+\index{clusters@{clusters}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{clusters}{clusters}}
+{\footnotesize\ttfamily map$<$string, Bin\+Tree$<$pair$<$string,double$>$ $>$ $>$ Cjt\+\_\+\+Clusters\+::clusters\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Mapa de árboles binarios donde se guardan los clústers, donde la key de cada árbol es el identificador de su nodo. 
+
+Ordenado crecientemente por dichos identificadores 
+
+Definición en la línea 37 del archivo Cjt\+\_\+\+Clusters.\+hh.
+
+\mbox{\Hypertarget{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}\label{class_cjt___clusters_af010e61859190999fb23f1854f4d23aa}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!save\+\_\+c1@{save\+\_\+c1}}
+\index{save\+\_\+c1@{save\+\_\+c1}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{save\+\_\+c1}{save\_c1}}
+{\footnotesize\ttfamily string Cjt\+\_\+\+Clusters\+::save\+\_\+c1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parámetro auxiliar que indica el identificador de uno de los dos clústers de distancia mínima, dicho identificador es el menor. 
+
+
+
+Definición en la línea 41 del archivo Cjt\+\_\+\+Clusters.\+hh.
+
+\mbox{\Hypertarget{class_cjt___clusters_a1406c60345958da0016fa3c0b1cd89f5}\label{class_cjt___clusters_a1406c60345958da0016fa3c0b1cd89f5}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!save\+\_\+c2@{save\+\_\+c2}}
+\index{save\+\_\+c2@{save\+\_\+c2}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{save\+\_\+c2}{save\_c2}}
+{\footnotesize\ttfamily string Cjt\+\_\+\+Clusters\+::save\+\_\+c2\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parámetro auxiliar que indica el identificador de uno de los dos clústers de distancia mínima, dicho identificador es el mayor. 
+
+
+
+Definición en la línea 45 del archivo Cjt\+\_\+\+Clusters.\+hh.
+
+\mbox{\Hypertarget{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}\label{class_cjt___clusters_a1b94b5f25778ee95796a9be966f1c619}} 
+\index{Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}!d\+\_\+min@{d\+\_\+min}}
+\index{d\+\_\+min@{d\+\_\+min}!Cjt\+\_\+\+Clusters@{Cjt\+\_\+\+Clusters}}
+\subsubsection{\texorpdfstring{d\+\_\+min}{d\_min}}
+{\footnotesize\ttfamily double Cjt\+\_\+\+Clusters\+::d\+\_\+min\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Parámetro auxiliar que indica la distancia mínima entre el clúster save\+\_\+c1 y save\+\_\+c2. 
+
+
+
+Definición en la línea 47 del archivo Cjt\+\_\+\+Clusters.\+hh.
+
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_cjt___clusters_8hh}{Cjt\+\_\+\+Clusters.\+hh}\item 
+\hyperlink{_cjt___clusters_8cc}{Cjt\+\_\+\+Clusters.\+cc}\end{DoxyCompactItemize}

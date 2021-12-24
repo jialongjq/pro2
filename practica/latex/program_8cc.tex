@@ -1,0 +1,127 @@
+\hypertarget{program_8cc}{}\section{Referencia del Archivo program.\+cc}
+\label{program_8cc}\index{program.\+cc@{program.\+cc}}
+
+
+Programa principal.  
+
+
+Dependencia gráfica adjunta para program.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=165pt]{program_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Programa principal. 
+
+Estamos suponiendo que todos los datos de entrada cumplen el formato decidido en el enunciado de la práctica y, por lo tanto, son válidos, por lo que no se hace ninguna comprobación sobre estos. 
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{program.\+cc@{program.\+cc}!main@{main}}
+\index{main@{main}!program.\+cc@{program.\+cc}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 22 del archivo program.\+cc.
+
+
+\begin{DoxyCode}
+22            \{
+23   \textcolor{keywordtype}{int} k; \textcolor{comment}{// Longitud de una subsecuencia de un gen}
+24   cin >> k;
+25   \hyperlink{class_cjt___especies}{Cjt\_Especies} e(k);
+26   \hyperlink{class_cjt___clusters}{Cjt\_Clusters} c;
+27   \textcolor{keywordtype}{string} command; \textcolor{comment}{// Código de operación}
+28   cin >> command;
+29   \textcolor{keywordflow}{while} (command != \textcolor{stringliteral}{"fin"}) \{
+30     \textcolor{keywordtype}{string} id;
+31     \textcolor{keywordtype}{bool} b;
+32     \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"crea\_especie"}) \{
+33       \textcolor{keywordtype}{string} gen;
+34       cin >> \textcolor{keywordtype}{id} >> gen;
+35       cout << \textcolor{stringliteral}{"# "} << command << \textcolor{stringliteral}{" "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" "} << gen << endl;
+36       e.crear\_especie(\textcolor{keywordtype}{id}, gen, b);
+37       \textcolor{keywordflow}{if} (not b) cout << \textcolor{stringliteral}{"ERROR: La especie "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" ya existe."} << endl;
+38     \}
+39     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"obtener\_gen"}) \{
+40       cin >> id;
+41       cout << \textcolor{stringliteral}{"# "} << command << \textcolor{stringliteral}{" "} << \textcolor{keywordtype}{id} << endl;
+42       \textcolor{keywordtype}{string} s = e.obtener\_gen(\textcolor{keywordtype}{id});
+43       \textcolor{keywordflow}{if} (s == \textcolor{stringliteral}{"-1"}) cout << \textcolor{stringliteral}{"ERROR: La especie "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" no existe."} << endl;
+44       \textcolor{keywordflow}{else} cout << s << endl;
+45     \}
+46     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"distancia"}) \{
+47       \textcolor{keywordtype}{string} id2;
+48       cin >> \textcolor{keywordtype}{id} >> id2;
+49       cout << \textcolor{stringliteral}{"# "} << command << \textcolor{stringliteral}{" "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" "} << id2 << endl;
+50       \textcolor{keywordtype}{double} d = e.consultar\_distancia(\textcolor{keywordtype}{id}, id2);
+51       \textcolor{keywordflow}{if} (d == -1) cout << \textcolor{stringliteral}{"ERROR: La especie "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" no existe."} << endl;
+52       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (d == -2) cout << \textcolor{stringliteral}{"ERROR: La especie "} << id2 << \textcolor{stringliteral}{" no existe."} << endl;
+53       \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (d == -3) cout << \textcolor{stringliteral}{"ERROR: La especie "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" y la especie "} << id2 << \textcolor{stringliteral}{" no existen."} << 
+      endl;
+54       \textcolor{keywordflow}{else} cout << d << endl;
+55     \}
+56     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"elimina\_especie"}) \{
+57       cin >> id;
+58       cout << \textcolor{stringliteral}{"# "} << command << \textcolor{stringliteral}{" "} << \textcolor{keywordtype}{id} << endl;
+59       e.eliminar\_especie(\textcolor{keywordtype}{id}, b);
+60       \textcolor{keywordflow}{if} (not b) cout << \textcolor{stringliteral}{"ERROR: La especie "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" no existe."}  << endl;
+61     \}
+62     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"existe\_especie"}) \{
+63       cin >> id;
+64       cout << \textcolor{stringliteral}{"# "} << command << \textcolor{stringliteral}{" "} << \textcolor{keywordtype}{id} << endl;
+65       \textcolor{keywordtype}{bool} b = e.existe\_especie(\textcolor{keywordtype}{id});
+66       \textcolor{keywordflow}{if} (b) cout << \textcolor{stringliteral}{"SI"} << endl;
+67       \textcolor{keywordflow}{else} cout << \textcolor{stringliteral}{"NO"} << endl;
+68     \}
+69     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"lee\_cjt\_especies"}) \{
+70       cout << \textcolor{stringliteral}{"# "} << command << endl;
+71       e = \hyperlink{class_cjt___especies}{Cjt\_Especies}(k);
+72       e.leer\_cjt\_especies();
+73       \}
+74     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"imprime\_cjt\_especies"}) \{
+75       cout << \textcolor{stringliteral}{"# "} << command << endl;
+76       e.imprimir\_cjt\_especies();
+77     \}
+78     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"tabla\_distancias"}) \{
+79       cout << \textcolor{stringliteral}{"# "} << command << endl;
+80       e.imprimir\_distancias\_e();
+81     \}
+82     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"inicializa\_clusters"}) \{
+83       cout << \textcolor{stringliteral}{"# "} << command << endl;
+84       c = \hyperlink{class_cjt___clusters}{Cjt\_Clusters}(e);
+85       c.\hyperlink{class_cjt___clusters_a8caa8d4eae15730feccea2ce7d22a196}{imprimir\_distancias\_c}();
+86     \}
+87     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"ejecuta\_paso\_wpgma"}) \{
+88       cout << \textcolor{stringliteral}{"# "} << command << endl;
+89       c.\hyperlink{class_cjt___clusters_a4675196f92740eda90fcbdf7942ee04b}{ejecutar\_paso\_wpgma}(b);
+90       \textcolor{keywordflow}{if} (not b) cout << \textcolor{stringliteral}{"ERROR: num\_clusters <= 1"} << endl;
+91     \}
+92     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"imprime\_cluster"}) \{
+93       cin >> id;
+94       cout << \textcolor{stringliteral}{"# "} << command << \textcolor{stringliteral}{" "} << \textcolor{keywordtype}{id} << endl;
+95       c.\hyperlink{class_cjt___clusters_add140d48281573802396c267f0d15cee}{imprimir\_cluster}(\textcolor{keywordtype}{id}, b);
+96       \textcolor{keywordflow}{if} (not b) cout << \textcolor{stringliteral}{"ERROR: El cluster "} << \textcolor{keywordtype}{id} << \textcolor{stringliteral}{" no existe."} << endl;
+97     \}
+98     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (command == \textcolor{stringliteral}{"imprime\_arbol\_filogenetico"}) \{
+99       cout << \textcolor{stringliteral}{"# "} << command << endl;
+100       c = \hyperlink{class_cjt___clusters}{Cjt\_Clusters}(e);
+101       c.\hyperlink{class_cjt___clusters_a289dfd3307b383620edc1f901dced7b0}{imprimir\_arbol\_filogenetico}(b);
+102       \textcolor{keywordflow}{if} (b) cout << \textcolor{stringliteral}{"ERROR: El conjunto de clusters es vacio."} << endl;
+103     \}
+104     cout << endl;
+105     cin >> command;
+106   \}
+107 \}
+\end{DoxyCode}
